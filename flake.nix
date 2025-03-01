@@ -42,8 +42,20 @@
 
      # ----- PACKAGES ----- #
      lib = nixpkgs.lib;
-     pkgs = nixpkgs.legacyPackages.${system};
-     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+     pkgs = import inputs.nixpkgs {
+       system = systemSettings.system;
+       config = {
+         allowUnfree = true;
+         allowUnfreePredicate = (_: true);
+       };
+     };
+     pkgs-unstable = import inputs.nixpkgs-unstable {
+       system = systemSettings.system;
+       config = {
+         allowUnfree = true;
+	 allowUnfreePredicate = (_: true);
+       };
+     };
 
    in {
    nixosConfigurations = {

@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../modules/user/sh.nix
-    ../../modules/user/hypr.nix
+    (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix")
+    ../../user/sh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
