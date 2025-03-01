@@ -8,6 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../modules/system/nvidia.nix
     ];
 
   # Bootloader.
